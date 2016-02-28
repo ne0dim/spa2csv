@@ -1,5 +1,5 @@
 # spa2csv
-Simple converter for Thermo Fisher Scientific spectrum binary format *.SPA
+Simple converter for Thermo Fisher Scientific spectrum binary format *.SPA.
 To use this app just provide it with SPA file as an argument like so:
 
 ```bash
