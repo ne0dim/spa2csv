@@ -7,4 +7,4 @@ ruby spa2csv spectrum.spa
 ```
 It will create text file containing your data in text format 
 named like this: spectrum.spa.csv.
-Hope it was useful
+Hope it will useful for someone
