@@ -5,6 +5,6 @@ To use this app just provide it with SPA file as an argument like so:
 ```bash
 ruby spa2csv spectrum.spa
 ```
-It will create text file containing your data in text format 
-named like this: spectrum.spa.csv.
+It will create plain text file containing your data in text format 
+named like this: `spectrum.spa.csv` with comma as a delimeter.
 Hope it will useful for someone.
