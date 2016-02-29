@@ -7,4 +7,4 @@ ruby spa2csv spectrum.spa
 ```
 It will create plain text file containing your data in text format 
 named like this: `spectrum.spa.csv` with comma as a delimeter.
-Hope it will useful for someone.
+Hope it will be useful for someone.
