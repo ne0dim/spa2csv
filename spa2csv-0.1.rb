@@ -30,6 +30,7 @@ else
     puts "No file provided"
     abort
 end
+
 #Searching for spectrum offset which is stored as 16bit
 #unsigned number marked by x00x00x00x03x00
 spectrum_offsets = spectrum_spa_binary_string.split("\x00\x00\x00\x03\x00")[1].unpack("S*")
@@ -40,7 +41,7 @@ spectrum_offset = spectrum_offsets[0]
 #Spectrum end offset is stored after x00x00
 spectrum_end_offset = spectrum_offsets[2]
 
-#Searching for spectrum range and unpacking it as float 32bit numbers
+#Searching for spectrum range and unpacking it as float 32bit numbers.
 #Couldn't find its offset anywhere in the file, so we search for it by pattern
 #x00x00x00x03x00x00x00. Not sure that it will work for every spectra but with
 #mine it works OK
@@ -50,15 +51,14 @@ spectrum_from_values = spectrum_spa_binary_string.split("\x00\x00\x00\x03\x00\x0
 puts spectrum_from_value = spectrum_from_values[3]
 puts spectrum_to_value = spectrum_from_values[4]
 
-#Unpacking spectrum using the offset found earlier
-#Spectrum is just 32bit floats
+#Unpacking spectrum using the offset found earlier.
+#The spectrum is just 32bit floats
 spectrum = spectrum_spa_binary_string.byteslice(spectrum_offset, spectrum_end_offset)
 spectrum_float = spectrum.unpack("f*")
 
 #Making a new array for X axis values
 spectrum_xaxis = Array.new(spectrum_float.length)
 
-#puts spectrum_float.length
 #Calculating X axis step. Maybe it's also somewhere in the file, just couldn't find it right away
 spectrum_step = (spectrum_from_value.to_f - spectrum_to_value.to_f)/(spectrum_float.length-1)
 puts spectrum_step = spectrum_step.abs
